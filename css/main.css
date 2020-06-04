@@ -51,6 +51,7 @@
 
 .logo img {
   width: 250px;
+  height: 60px;
 }
 
 .header-menu {
@@ -59,14 +60,34 @@
 
 .header-menu li {
   list-style: none;
-  position: relative;
+  align-content: center;
+  padding-top: 10px;
+  float: left;
+  height: 100%;
+}
+
+.header-menu li a:hover {
+  color: #ad0230;
 }
 
 .header-menu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: white;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 300;
   padding: 8px 18px;
   border-radius: 3px;
+}
+
+.divider {
+  border-bottom: none;
+  border-top: none;
+  border-right: solid 1px #ad0230;
+  clear: none;
+  width: 0px;
+  height: 100%;
 }
 /* End Header */
