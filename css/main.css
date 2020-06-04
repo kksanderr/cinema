@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Fanwood Text', sans-serif;
+}
+
+/* Margins */
+
+.mt-5, .my-5 {
+  margin-top: 5%;
+}
+
+.mb-5, .my-5 {
+  margin-bottom: 5%;
+}
+
+.ml-5, .mx-5 {
+  margin-left: 5%;
+}
+
+.mr-5, .mx-5 {
+  margin-right: 5%;
+}
+
+.mt-2, .my-2 {
+  margin-top: 2%;
+}
+
+.mb-2, .my-2 {
+  margin-bottom: 2%;
+}
+
+.ml-2, .mx-2 {
+  margin-left: 2%;
+}
+
+.mr-2, .mx-2 {
+  margin-right: 2%;
+}
+
+/* End Margins */
+
+/* Header */
+.header {
+  background: black;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 250px;
+}
+
+.header-menu {
+  display: flex;
+}
+
+.header-menu li {
+  list-style: none;
+  position: relative;
+}
+
+.header-menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 3px;
+}
+/* End Header */
