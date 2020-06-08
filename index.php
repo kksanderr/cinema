@@ -25,21 +25,54 @@
 
      <!-- Main Carousel -->
      <div class="main-carousel-wrapper">
-      <div class="main-carousel">
+      <div class="main-carousel" align="center">
         <ul>
          <li> <img src="./img/img1.jpg"> </li>
          <li> <img src="./img/img2.jpg"> </li>
          <li> <img src="./img/img3.jpg"> </li>
         </ul>
+
+
+        <a href="#" class="main-carousel-control-prev"><div>&lsaquo;</div></a>
+        <a href="#" class="main-carousel-control-next"><div>&rsaquo;</div></a>
+
+        <p class="main-carousel-pagination"></p>
       </div>
-    </div>
-
-    <a href="#" class="main-carousel-control-prev">&lsaquo;</a>
-    <a href="#" class="main-carousel-control-next">&rsaquo;</a>
-
-    <p class="main-carousel-pagination"></p>
-
+     </div>
      <!-- End Main Carousel -->
+
+     <!-- Repertoar -->
+     <div class="repertoar">
+       <h2>REPERTOAR</h2>
+     </div>
+
+     <div class="repertoar-row">
+       <section class="date-selector">
+         <div class="day"><p>Danas</p></div>
+         <div class="day"><p>Danas+1</p></div>
+         <div class="day"><p>Danas+2</p></div>
+         <div class="day"><p>Danas+3</p></div>
+         <div class="day"><p>Danas+4</p></div>
+         <div class="day"><p>Danas+5</p></div>
+         <div class="day"><p>Danas+6</p></div>
+       </section>
+
+       <div class="showings">
+         <ul>
+           <li class="performance">
+             <div class="programme">
+               <div class="poster">
+                 <a href="#"><img src="" alt=""></a>
+               </div>
+               <div class="programme-info">
+
+               </div>
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
+     <!-- End Repertoar -->
    </body>
 
  </html>

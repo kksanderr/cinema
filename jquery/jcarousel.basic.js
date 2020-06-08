@@ -1,6 +1,12 @@
 (function($) {
     $(function() {
-        $('.main-carousel').jcarousel();
+        $('.main-carousel').jcarousel({
+          wrap: 'circular'
+        });
+
+        $('.main-carousel').jcarouselAutoscroll({
+          interval: 5000
+        });
 
         $('.main-carousel-control-prev')
             .on('jcarouselcontrol:active', function() {
@@ -31,6 +37,8 @@
             .on('jcarouselpagination:inactive', 'a', function() {
                 $(this).removeClass('active');
             })
-            .jcarouselPagination();
+            .jcarouselPagination({
+              'perPage': 1
+            });
     });
 })(jQuery);
