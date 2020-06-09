@@ -62,10 +62,18 @@
            <li class="performance">
              <div class="programme">
                <div class="poster">
-                 <a href="#"><img src="" alt=""></a>
+                 <a href="#"><img src="./img/brazil.jpg" alt=""></a>
                </div>
                <div class="programme-info">
-
+                 <ul>
+                   <li>
+                     <h3><a href="#">Brazil</a></h3>
+                   </li>
+                 </ul>
+                 <ul class="times">
+                   <li class="start-time">12:00</li>
+                   <li class="start-time">18:00</li>
+                 </ul>
                </div>
              </div>
            </li>

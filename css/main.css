@@ -222,4 +222,28 @@ body {
 .day p:hover {
   color: #ad0230;
 }
+
+.programme {
+  display: flex;
+  width: 25%;
+}
+
+.poster img {
+  max-height: 290px;
+  margin-top: 4px;
+}
+
+.times {
+  margin-left: 5px;
+}
+
+.start-time {
+  list-style: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  background-color: #ad0230;
+  color: #fff;
+  border-radius: 5px;
+}
 /* End Repertoar */
