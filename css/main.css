@@ -223,9 +223,25 @@ body {
   color: #ad0230;
 }
 
+.showings {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.showings ul {
+  display: flex;
+  list-style: none;
+}
+
+.performance {
+  list-style: none;
+}
+
 .programme {
   display: flex;
   width: 25%;
+  margin-right: 10px;
 }
 
 .poster img {
@@ -235,6 +251,8 @@ body {
 
 .times {
   margin-left: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .start-time {
@@ -247,3 +265,72 @@ body {
   border-radius: 5px;
 }
 /* End Repertoar */
+
+/* Login */
+
+.login, .signup {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.login .closebtn, .signup .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 42px;
+  font-weight: bold;
+  /*margin-left: 50px;*/
+  margin: 12px;
+  text-decoration: none;
+  color: #ad0230;
+  transition: font-size 1s, margin 1s;
+}
+
+.login .closebtn:hover, .signup .closebtn:hover {
+  font-size: 60px;
+  margin: 8px;
+}
+
+#main {
+  transition: margin-right .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.login-form {
+  margin-left: 25px;
+  color: #fff;
+}
+
+.form-field {
+  width: 200px;
+  height: 30px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  margin: 4px 2px;
+}
+
+.submit-btn button {
+  width: 200px;
+  height: 30px;
+  background-color: #ad0230;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* End Login */

@@ -11,8 +11,8 @@
     <li class="divider"></li>
     <li><a href="news.php">Vesti</a></li>
     <li class="divider"></li>
-    <li><a href="login.php">Prijavljivanje</a></li>
+    <span onclick="openNavLogin()"><li><a href="#">Prijavljivanje</a></li></span>
     <li class="divider"></li>
-    <li><a href="register.php">Registracija</a></li>
+    <span onclick="openNavSignup()"><li><a href="#">Registracija</a></li></span>
   </ul>
 </header>

@@ -18,6 +18,7 @@
      <script type="text/javascript" src="./jquery/jcarousel.basic.js"></script>
    </head>
    <body>
+     <div id="main">
 
      <!-- Header -->
      <?php include('./templates/header.php'); ?>
@@ -77,10 +78,65 @@
                </div>
              </div>
            </li>
+
+           <li class="performance">
+             <div class="programme">
+               <div class="poster">
+                 <a href="#"><img src="./img/SunsetBlvd.jpg" alt=""></a>
+               </div>
+               <div class="programme-info">
+                 <ul>
+                   <li>
+                     <h3><a href="#">Sunset Blvd.</a></h3>
+                   </li>
+                 </ul>
+                 <ul class="times">
+                   <li class="start-time">15:00</li>
+                   <li class="start-time">21:00</li>
+                 </ul>
+               </div>
+             </div>
+           </li>
          </ul>
        </div>
      </div>
      <!-- End Repertoar -->
+   </div>
+     <!-- Login -->
+
+     <?php include('login.php'); ?>
+
+     <!-- End Login -->
+
+     <!-- Signup -->
+
+     <?php include('signup.php'); ?>
+
+     <!-- End Signup -->
+     <script>
+      function openNavLogin() {
+        document.getElementById("login-sidenav").style.width = "250px";
+        document.getElementById("main").style.marginRight = "250px";
+      }
+
+      function closeNavLogin() {
+        document.getElementById("login-sidenav").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+      }
+     </script>
+
+     <script>
+      function openNavSignup() {
+        document.getElementById("signup-sidenav").style.width = "250px";
+        document.getElementById("main").style.marginRight = "250px";
+      }
+
+      function closeNavSignup() {
+        document.getElementById("signup-sidenav").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+      }
+     </script>
+
    </body>
 
  </html>
