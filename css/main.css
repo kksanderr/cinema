@@ -142,7 +142,6 @@ body {
   position: absolute;
   width: 60px;
   height: 100%;
-  background: transparent;
   color: #fff;
   text-decoration: none;
   text-shadow: 0 0 1px #000;
@@ -151,9 +150,9 @@ body {
 }
 
 .main-carousel-control-prev div {
-  background: transparent;
+  background: #000;
   height: 100%;
-  margin-top: 165px;
+  padding-top: 165px;
   font: 74px Arial, sans-serif;
 }
 
@@ -161,7 +160,7 @@ body {
   position: absolute;
   width: 60px;
   height: 100%;
-  background: transparent;
+  background: #000;
   color: #fff;
   text-decoration: none;
   text-shadow: 0 0 1px #000;
@@ -172,7 +171,7 @@ body {
 .main-carousel-control-next div {
   background: transparent;
   height: 100%;
-  margin-top: 165px;
+  padding-top: 165px;
   font: 74px Arial, sans-serif;
 }
 
@@ -334,3 +333,57 @@ body {
 }
 
 /* End Login */
+
+/* Dropdown */
+
+.header-menu li.dropdown-wrapper>a:after {
+  content: '\25BE';
+  color: white;
+  position: absolute;
+  right: 4px;
+}
+
+.header-menu li .dropdown {
+  display: none;
+}
+
+.header-menu li.dropdown-wrapper:hover .dropdown {
+  display: block;
+}
+
+.burger {
+  width: 50px;
+  background-color: transparent;
+  border: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  padding: 0;
+  border-radius: 5px;
+  background-color: #ad0230;
+  border: 1px solid gray;
+  width: 140px;
+  z-index: 2;
+}
+
+.dropdown .dropdown-divider {
+  border-top: 1px solid #000;
+  width: 100%;
+  height: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  padding: 0;
+  width: 100%
+}
+
+.header-menu li .dropdown li a {
+  color: #fff;
+/* End Dropdown */
