@@ -386,4 +386,41 @@ body {
 
 .header-menu li .dropdown li a {
   color: #fff;
+}
 /* End Dropdown */
+
+/* Responsive */
+/* Tablet */
+
+@media (max-width: 768px) {
+  .header-menu {
+    display:none;
+		width: 100%;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: #ad0230;
+		padding: 60px 0;
+		z-index: 999;
+    flex-direction: column;
+		align-items: center;
+  }
+
+  .header-menu ul {
+
+	}
+
+  .header-menu li a {
+    font-size: 12px;
+  }
+
+  .header-menu li a:hover {
+    color: #000;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+/* End Responsive */

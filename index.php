@@ -16,6 +16,8 @@
      <script type="text/javascript" src="./jquery/jquery.jcarousel.min.js"></script>
 
      <script type="text/javascript" src="./jquery/jcarousel.basic.js"></script>
+
+     <script type="text/javascript" src="./js/main.js"></script>
    </head>
    <body>
      <div id="main">
@@ -49,13 +51,13 @@
 
      <div class="repertoar-row">
        <section class="date-selector">
-         <div class="day"><p>Danas</p></div>
-         <div class="day"><p>Danas+1</p></div>
-         <div class="day"><p>Danas+2</p></div>
-         <div class="day"><p>Danas+3</p></div>
-         <div class="day"><p>Danas+4</p></div>
-         <div class="day"><p>Danas+5</p></div>
-         <div class="day"><p>Danas+6</p></div>
+         <div class="day"><p><?php echo date('d-M-y');?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+1 day'));?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+2 day'));?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+3 day'));?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+4 day'));?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+5 day'));?></p></div>
+         <div class="day"><p><?php echo date('d-M-y', strtotime('+6 day'));?></p></div>
        </section>
 
        <div class="showings">
