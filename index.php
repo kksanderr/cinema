@@ -45,7 +45,7 @@
      <!-- End Main Carousel -->
 
      <!-- Repertoar -->
-     <div class="repertoar">
+     <div class="title">
        <h2>REPERTOAR</h2>
      </div>
 
@@ -104,6 +104,39 @@
      </div>
      <!-- End Repertoar -->
    </div>
+
+     <!-- News -->
+     <div class="title">
+       <h2>Vesti</h2>
+     </div>
+     <div class="news-row">
+       <div class="news">
+         <div class="news-img">
+           <a href="#"><img src="./img/news1.jpg" alt=""></a>
+         </div>
+         <a href="#"><h3>Lorem Ipsum 1</h3></a>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare laoreet ligula fringilla faucibus. Nunc eget est eget lacus...</p>
+         <a href="#">(Čitaj još...)</a>
+       </div>
+       <div class="news">
+         <div class="news-img">
+           <a href="#"><img src="./img/news1.jpg" alt=""></a>
+         </div>
+         <a href="#"><h3>Lorem Ipsum 2</h3></a>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare laoreet ligula fringilla faucibus. Nunc eget est eget lacus...</p>
+         <a href="#">(Čitaj još...)</a>
+       </div>
+       <div class="news">
+         <div class="news-img">
+           <a href="#"><img src="./img/news1.jpg" alt=""></a>
+         </div>
+         <a href="#"><h3>Lorem Ipsum 3</h3></a>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare laoreet ligula fringilla faucibus. Nunc eget est eget lacus...</p>
+         <a href="#">(Čitaj još...)</a>
+       </div>
+     </div>
+     <!-- End News -->
+
      <!-- Login -->
 
      <?php include('login.php'); ?>
