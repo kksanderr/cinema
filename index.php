@@ -50,16 +50,27 @@
      </div>
 
      <div class="repertoar-row">
+       <!--
        <section class="date-selector">
-         <div class="day"><p><?php echo date('d-M-y');?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+1 day'));?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+2 day'));?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+3 day'));?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+4 day'));?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+5 day'));?></p></div>
-         <div class="day"><p><?php echo date('d-M-y', strtotime('+6 day'));?></p></div>
+         <input type="radio" name="days" value="1"><span class="day"><?php echo date('d-M-y');?></span>
+         <input type="radio" name="days" value="2"><span class="day"><?php echo date('d-M-y', strtotime('+1 day'));?></span>
+         <input type="radio" name="days" value="3"><span class="day"><?php echo date('d-M-y', strtotime('+2 day'));?></span>
+         <input type="radio" name="days" value="4"><span class="day"><?php echo date('d-M-y', strtotime('+3 day'));?></span>
+         <input type="radio" name="days" value="5"><span class="day"><?php echo date('d-M-y', strtotime('+4 day'));?></span>
+         <input type="radio" name="days" value="6"><span class="day"><?php echo date('d-M-y', strtotime('+5 day'));?></span>
+         <input type="radio" name="days" value="7"><span class="day"><?php echo date('d-M-y', strtotime('+6 day'));?></span>
        </section>
+-->
 
+        <p id="days">
+          <label><input type="radio" name="work_days" value="1" checked="checked"><span><?php echo date('d-M-y');?></span></label>
+          <label><input type="radio" name="work_days" value="2"><span><?php echo date('d-M-y', strtotime('+1 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="3"><span><?php echo date('d-M-y', strtotime('+2 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="4"><span><?php echo date('d-M-y', strtotime('+3 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="5"><span><?php echo date('d-M-y', strtotime('+4 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="6"><span><?php echo date('d-M-y', strtotime('+5 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="7"><span><?php echo date('d-M-y', strtotime('+6 day'));?></span></label>
+        </p>
        <div class="showings">
          <ul>
            <li class="performance">

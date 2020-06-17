@@ -200,27 +200,37 @@ body {
   height: 350px;
 }
 
-.date-selector {
+#days {
   display: flex;
   background-color: white;
   height: 50px;
 }
 
-.day {
-  display: inline;
+#days label {
   width: 14.29%;
-  font-size: 20px;
   text-align: center;
+}
+
+#days input[type="radio"] {
+  display: none;
+}
+
+#days input[type="radio"]:checked+span {
+  background-color: #474747;
+  color: #ad0230;
+}
+
+#days span {
+  display: inline-block;
+  font-size: 20px;
   vertical-align: middle;
   line-height: 50px;
+  width: 100%;
 }
 
-.day:hover {
+#days span:hover {
  background: #474747;
-}
-
-.day p:hover {
-  color: #ad0230;
+ color: #ad0230;
 }
 
 .showings {
