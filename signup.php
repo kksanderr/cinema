@@ -1,3 +1,61 @@
+<?php
+require_once('core/start.php');
+
+if(Input::exists('post')) {
+	// validacija
+	$validation = new Validate();
+	$validation->check($_POST, [
+			'username' => [
+				'required' => true,
+				'min' => 2,
+				'max' => 60,
+				'unique' => 'users'
+			],
+
+			'password' => [
+				'required' => true,
+				'min'=> 6
+			],
+
+			'retype' => [
+				'required' => true,
+				'matches' => 'password'
+			],
+
+			'email' => [
+				'required' => true,
+				'email'	=> true,
+				'unique' => 'users'
+			]
+
+		]);
+
+	if ($validation->passed()) {
+
+		// registracija korisnika
+			$user = new User();
+			$data = [
+				NULL,
+				Input::get('username'),
+				Input::get('email'),
+				Hash::make(Input::get('password')),
+				'user', // user role
+				date('Y-m-d H:i:s'), // created_at
+				date('Y-m-d H:i:s') // updated_at
+			];
+
+			$user->create($data);
+			// redirekt
+		Session::set('success', 'You have been registered and can now loged in');
+		Redirect::to('login.php');
+
+	} else {
+		Session::set('errors', $validation->errors());
+	}
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

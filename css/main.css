@@ -343,6 +343,10 @@ body {
   font-weight: bold;
 }
 
+.messages {
+  background-color: red;
+  width: 50%;
+}
 /* End Login */
 
 /* Dropdown */
