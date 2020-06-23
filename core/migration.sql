@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS bioskop
+CREATE DATABASE IF NOT EXISTS cinema
 CHARACTER SET = utf8 COLLATE = utf8_general_ci;
-USE bioskop;
+USE cinema;
 
 -- tabela users
 CREATE TABLE IF NOT EXISTS users (
@@ -38,6 +38,17 @@ CREATE TABLE IF NOT EXISTS showings (
   time DATETIME NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (film_id) REFERENCES films(id)
+) ENGINE = InnoDB
+DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT = 1;
+
+-- tabela users_films
+CREATE TABLE IF NOT EXISTS users_films (
+  id int unsigned NOT NULL AUTO_INCREMENT,
+  user_id int unsigned,
+  showings_id int unsigned,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (showings_id) REFERENCES showings(id)
 ) ENGINE = InnoDB
 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT = 1;
 

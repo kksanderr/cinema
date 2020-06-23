@@ -13,9 +13,28 @@
     <li class="divider"></li>
     <li><a href="news.php">Vesti</a></li>
     <li class="divider"></li>
-    <span onclick="openNavLogin()"><li><a href="#">Prijavljivanje</a></li></span>
-    <li class="divider"></li>
-    <span onclick="openNavSignup()"><li><a href="#">Registracija</a></li></span>
+    <?php
+	if(isset($user) && $user->isLoggedIn()) {
+$html = <<<OUT
+<li><a href="profile.php">{$user->data()->username}</a></li>
+<li class="divider"></li>
+<li><a href="#">New article</a></li>
+<li class="divider"></li>
+<li><a href="logout.php">Logout</a></li>
+OUT;
+
+} else {
+
+$html = <<<OUT
+<span onclick="openNavLogin()"><li><a href="#">Prijavljivanje</a></li></span>
+<li class="divider"></li>
+<span onclick="openNavSignup()"><li><a href="#">Registracija</a></li></span>
+OUT;
+}
+
+echo $html;
+?>
+
     <li class="divider"></li>
     <li class="dropdown-wrapper"><a href="about.php">O nama</a>
       <ul class="dropdown">
