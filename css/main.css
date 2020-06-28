@@ -440,6 +440,32 @@ body {
 }
 /* End News */
 
+/* Panel */
+.panel{
+  background-color: #fff;
+  margin-left: 20px;
+}
+
+.poster-wrapper {
+  display: flex;
+  background-color: gold;
+  height: 400px;
+  width: 450px;
+  position: fixed;
+  right: 0;
+  top: 200px;
+}
+
+.poster {
+  height: 350px;
+  margin: auto;
+}
+
+#datetimepicker1 {
+  width: 50%;
+}
+
+/* End Panel */
 /* Responsive */
 /* Tablet */
 

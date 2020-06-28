@@ -89,6 +89,15 @@ if(Input::exists('post')) {
       	</div>
       </div>
       </section>
+
+			<section class="container-sm">
+				<div class="messages">
+					<div class="mt-5">
+						<?php include('./templates/messages.php'); ?>
+					</div>
+				</div>
+			</section>
+			
     </div>
   </body>
 </html>

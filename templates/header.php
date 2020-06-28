@@ -23,6 +23,18 @@ $html = <<<OUT
 <li><a href="logout.php">Logout</a></li>
 OUT;
 
+    if($user->data()->role = 'admin') {
+$html = <<<OUT
+<li><a href="profile.php">{$user->data()->username}</a></li>
+<li class="divider"></li>
+<li><a href="#">New article</a></li>
+<li class="divider"></li>
+<li><a href="panel.php">Admin panel</a></li>
+<li class="divider"></li>
+<li><a href="logout.php">Logout</a></li>
+OUT;
+    }
+
 } else {
 
 $html = <<<OUT
