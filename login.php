@@ -1,6 +1,6 @@
 <?php
 	require_once('core/start.php');
-	//$db = Database::connect();
+	$db = Database::connect();
 
 	if(Input::exists('post')) {
 
@@ -26,7 +26,7 @@
 			if($user->login(Input::get('email'), Input::get('password'))) {
 				// redirekt
 				Session::set('success', 'You are loged in');
-				Redirect::to('profile.php');
+				Redirect::to('index.php');
 			}
 			else {
 				Session::set('error', 'Login failed! Wrong email or password.');
@@ -55,7 +55,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNavLogin()">&times;</a>
             <h2>Prijavljivanje</h2>
 
-             <form method="POST" action="">
+             <form method="POST" action="login.php">
               <p class="my-5">E-Mail adresa:</p>
               <input class="form-field mb-5" type="text" name="email">
               <p class="my-5">Šifra:</p>
