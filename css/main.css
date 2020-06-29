@@ -465,6 +465,13 @@ body {
   width: 50%;
 }
 
+form div.filmexists {
+  background-color: red;
+  width: 250px;
+  padding: 3px;
+  border: 2px solid black;
+}
+
 /* End Panel */
 /* Responsive */
 /* Tablet */

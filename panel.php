@@ -2,7 +2,9 @@
   require_once('core/start.php');
   $db = Database::connect();
 
+  $sql = "SELECT `id` FROM `films` WHERE `imdb_id`=?";
   if(Input::exists('post')) {
+    if(empty($db->query($sql, [Input::get('imdb_id')])->results())) {
     $film = new Film();
     $data = [
       NULL,
@@ -19,15 +21,13 @@
     ];
 
     $film->create($data);
+    }
     // print_r($data);
-    $sql = "SELECT `id` FROM `films` WHERE `imdb_id`=?";
     $film_id = $db->query($sql, [Input::get('imdb_id')])->results();
     // echo "<pre>";
-    // $film_id = (array)$film_id;
-    // $film_id = (array)$film_id[0];
+    
     // var_dump($film_id);
     $film_id = (int) $film_id[0]->id;
-    //$date = date_create_from_format('Y-m-d H:i:s', $_POST["datetime"]);
 
     $showings = new Showings();
     $data2 = [
@@ -51,7 +51,7 @@
      href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
   </head>
   <body class="panel">
-    <a href="index.php"><< NAZAD</a>
+    <a href="index.php"><< NAZAD</a> <a href="panel.php">RESETUJ</a>
     <form class="omdb" action="panel.php" method="get">
       <input type="text" name="imdbid" placeholder="IMDB ID">
       <input type="submit" name="" value="Prikazi">
@@ -71,6 +71,17 @@
 
 ?>
 <form class="" action="panel.php" method="post">
+  <?php
+  if(isset($_GET["imdbid"])) {
+    if(!empty($db->query($sql, [$_GET["imdbid"]])->results())) {
+      //echo '<div class="filmexists">Film već postoji u bazi. Možete dodati drugo vreme prikazivanja</div>';
+$html = <<<OUT
+<div class="filmexists">Film već postoji u bazi. Možete dodati drugo vreme prikazivanja.</div>
+OUT;
+echo $html;
+    }
+  }
+  ?>
   <label>Movie title</label>
   <input type="text" name="title" value="<?php isset($data["Title"]) ? print_r($data["Title"]) : '' ?>"><br>
   <label>Year</label>
