@@ -2,42 +2,50 @@
   require_once('core/start.php');
   $db = Database::connect();
 
-  $sql = "SELECT `id` FROM `films` WHERE `imdb_id`=?";
-  if(Input::exists('post')) {
-    if(empty($db->query($sql, [Input::get('imdb_id')])->results())) {
-    $film = new Film();
-    $data = [
-      NULL,
-      Input::get('title'),
-      Input::get('year'),
-      Input::get('runtime'),
-      Input::get('genre'),
-      Input::get('director'),
-      Input::get('actors'),
-      '',
-      Input::get('language'),
-      Input::get('poster'),
-      Input::get('imdb_id')
-    ];
-
-    $film->create($data);
+  if(isset($user->data()->role)) {
+    if($user->data()->role != 'admin') { // Provera prava pristupa
+      echo "<h2>Nemate pravo pristupa!<h2>";
     }
-    // print_r($data);
-    $film_id = $db->query($sql, [Input::get('imdb_id')])->results();
-    // echo "<pre>";
-    
-    // var_dump($film_id);
-    $film_id = (int) $film_id[0]->id;
+    elseif ($user->data()->role == 'admin') {
+    $sql = "SELECT `id` FROM `films` WHERE `imdb_id`=?";
+    if(Input::exists('post')) {
+      // Provera da li film vec postoji u bazi
+      if(empty($db->query($sql, [Input::get('imdb_id')])->results())) {
+      $film = new Film();
+      // Kupi podatke sa forme
+      $data = [
+        NULL,
+        Input::get('title'),
+        Input::get('year'),
+        Input::get('runtime'),
+        Input::get('genre'),
+        Input::get('director'),
+        Input::get('actors'),
+        '',
+        Input::get('language'),
+        Input::get('poster'),
+        Input::get('imdb_id')
+      ];
 
-    $showings = new Showings();
-    $data2 = [
-      NULL,
-      $film_id,
-      date("Y-m-d h:i:s", strtotime($_POST["datetime"]))
-    ];
-    // var_dump($data2);
-    $showings->create($data2);
-  }
+      $film->create($data);
+      }
+      // print_r($data);
+      // Upit u bazu kako bi se dobio id filma za uneti IMDb ID
+      $film_id = $db->query($sql, [Input::get('imdb_id')])->results();
+      // echo "<pre>";
+
+      // var_dump($film_id);
+      $film_id = (int) $film_id[0]->id;
+
+      $showings = new Showings();
+      $data2 = [
+        NULL,
+        $film_id,
+        date("Y-m-d h:i:s", strtotime($_POST["datetime"]))
+      ];
+      // var_dump($data2);
+      $showings->create($data2);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +69,7 @@
   if (!empty($_GET["imdbid"])) {
     $imdbid = $_GET["imdbid"];
 
+    // Povezivanje sa API-jem
     $curl = curl_init();
     curl_setopt ($curl, CURLOPT_URL, 'http://www.omdbapi.com/?i='.$imdbid.'&apikey=1081d8ec');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -70,11 +79,12 @@
   }
 
 ?>
+<!-- Forma koja se popunjava podacima iz API-ja -->
 <form class="" action="panel.php" method="post">
   <?php
   if(isset($_GET["imdbid"])) {
+    // Proverava da li IMDb ID postoji u bazi i u tom slucaju ispisuje poruku
     if(!empty($db->query($sql, [$_GET["imdbid"]])->results())) {
-      //echo '<div class="filmexists">Film već postoji u bazi. Možete dodati drugo vreme prikazivanja</div>';
 $html = <<<OUT
 <div class="filmexists">Film već postoji u bazi. Možete dodati drugo vreme prikazivanja.</div>
 OUT;
@@ -101,6 +111,7 @@ echo $html;
   <label>Poster</label>
   <textarea name="poster" cols="50"><?php isset($data["Poster"]) ? print_r($data["Poster"]) : '' ?></textarea><br>
   <label>Vreme</label>
+  <!-- Bootstrap Datetimepicker -->
   <div id="datetimepicker" class="input-append date">
     <input type="text" name="datetime"></input>
     <span class="add-on">
@@ -133,3 +144,8 @@ echo $html;
 
   </body>
 </html>
+<?php
+}
+}
+else {echo "<h2>Nemate pravo pristupa!<h2>";}
+?>
