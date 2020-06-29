@@ -498,6 +498,11 @@ body {
   .burger {
     display: block;
   }
+
+  .poster-wrapper {
+    position: static;
+  }
 }
+
 
 /* End Responsive */

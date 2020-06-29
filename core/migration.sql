@@ -35,7 +35,7 @@ DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT = 1;
 CREATE TABLE IF NOT EXISTS showings (
   id int unsigned NOT NULL AUTO_INCREMENT,
   film_id int unsigned NOT NULL,
-  time DATETIME NOT NULL,
+  times DATETIME NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (film_id) REFERENCES films(id)
 ) ENGINE = InnoDB
@@ -64,3 +64,7 @@ CREATE TABLE IF NOT EXISTS news (
   PRIMARY KEY (id)
 ) ENGINE = InnoDB
 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT = 1;
+
+-- dodavanje imdb_id u tabelu films
+ALTER TABLE films
+ADD imdb_id varchar(9) COLLATE utf8_general_ci NOT NULL;
