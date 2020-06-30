@@ -3,6 +3,10 @@
 require_once('core/start.php');
 $db = Database::connect();
 
+if(!isset($_GET['id'])) {
+  Redirect::to('index.php');
+}
+
 $id = $_GET['id'];
 // echo $id;
 
