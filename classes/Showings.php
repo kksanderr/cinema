@@ -39,5 +39,12 @@ class Showings {
     // print_r($final);
     return $final;
   }
+
+  public function radioChecked($name, $value) {
+    if ((isset($_GET[$name]) && $_GET[$name] == $value)) {
+    $checked = ' checked="checked"';
+    echo $checked;
+  }
+  }
 }
  ?>

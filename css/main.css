@@ -259,6 +259,15 @@ body {
   margin-top: 4px;
 }
 
+.programme-info>ul>li>h3>a {
+  text-decoration: none;
+  color: #ad0230;
+}
+
+.programme-info>ul>li>h3>a:hover {
+  color: black;
+}
+
 .times {
   margin-left: 5px;
   display: flex;
