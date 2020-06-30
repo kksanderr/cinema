@@ -231,6 +231,7 @@ body {
 #days span:hover {
  background: #474747;
  color: #ad0230;
+ font-weight: bold;
 }
 
 .showings {
@@ -491,6 +492,53 @@ form div.filmexists {
 }
 
 /* End Panel */
+
+/* Films */
+
+.film-wrapper {
+  padding: 30px;
+  display: flex;
+}
+
+.film-name {
+  align-items: center;
+  align-content: center;
+  font-size: 26px;
+  font-weight: bold;
+  height: 40px;
+  display: block;
+}
+
+#film-poster {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+#film-poster>img {
+  height: 350px;
+}
+
+div .info {
+  border: 2px solid black;
+  border-radius: 3px;
+  background-color: lightcyan;
+  width: 400px;
+  float: right;
+  display: inline-block;
+  padding: 10px;
+  margin-right: 50px;
+}
+
+.info>span {
+  line-height: 25px;
+}
+
+.imdb {
+  width: 100px;
+}
+
+/* End Films */
 /* Responsive */
 /* Tablet */
 

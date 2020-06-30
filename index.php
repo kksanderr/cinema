@@ -72,8 +72,8 @@
         <form id="days" method="get" action="#title">
 
           <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d');?>"
-            <?php if (!isset($_GET["work_days"]) || $_GET["work_days"] == date('Y-m-d')) echo 'checked="checked"' ?>
-            onchange="this.form.submit()"><span><?php echo date('d-M-y');?></span></label>
+          <?php if (!isset($_GET["work_days"]) || $_GET["work_days"] == date('Y-m-d')) echo 'checked="checked"' ?>
+          onchange="this.form.submit()"><span><?php echo date('d-M-y');?></span></label>
 
           <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+1 day'));?>"
           <?php $shows->radioChecked("work_days", date('Y-m-d', strtotime('+1 day'))) ?>
@@ -117,7 +117,7 @@
                     <div class="programme-info">
                       <ul>
                         <li>
-                          <h3><a href="#"><?php echo $film['film_name']." (".$film['year'].")"; ?></a></h3>
+                          <h3><a href="films.php?id=<?php echo $film['id'] ?>"><?php echo $film['film_name']." (".$film['year'].")"; ?></a></h3>
                         </li>
                       </ul>
                       <ul class="times">
