@@ -41,7 +41,7 @@
       $data2 = [
         NULL,
         $film_id,
-        date("Y-m-d h:i:s", strtotime($_POST["datetime"]))
+        date("Y-m-d H:i:s", strtotime($_POST["datetime"]))
       ];
       // var_dump($data2);
       $showings->create($data2);

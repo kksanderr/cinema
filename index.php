@@ -1,8 +1,22 @@
 <?php
   require_once('core/start.php');
   $db = Database::connect();
- ?>
 
+  $shows = new Showings();
+  if(!isset($_GET["work_days"])) {
+    // $_GET["work_days"] = date('Y-m-d');
+    $films = $shows->show(date('Y-m-d'));
+    echo date('Y-m-d');
+    // print_r($films);
+  }
+  else {
+    $films = $shows->show($_GET["work_days"]);
+    echo $_GET["work_days"];
+    // print_r($films);
+  }
+  // echo $films[0]['film_name'];
+  print_r(date('H:i', strtotime($films[0]['times'])));
+?>
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
@@ -18,6 +32,11 @@
      <script type="text/javascript" src="./jquery/jcarousel.basic.js"></script>
 
      <script type="text/javascript" src="./js/main.js"></script>
+     <!-- <script>
+     function check(work_days) {
+       document.getElementById("answer").value=work_days;
+     }
+     </script> -->
    </head>
    <body>
      <div id="main">
@@ -45,22 +64,53 @@
      <!-- End Main Carousel -->
 
      <!-- Repertoar -->
-     <div class="title">
+     <div class="title" id="title">
        <h2>REPERTOAR</h2>
      </div>
 
      <div class="repertoar-row">
-        <p id="days">
-          <label><input type="radio" name="work_days" value="1" checked="checked"><span><?php echo date('d-M-y');?></span></label>
-          <label><input type="radio" name="work_days" value="2"><span><?php echo date('d-M-y', strtotime('+1 day'));?></span></label>
-          <label><input type="radio" name="work_days" value="3"><span><?php echo date('d-M-y', strtotime('+2 day'));?></span></label>
-          <label><input type="radio" name="work_days" value="4"><span><?php echo date('d-M-y', strtotime('+3 day'));?></span></label>
-          <label><input type="radio" name="work_days" value="5"><span><?php echo date('d-M-y', strtotime('+4 day'));?></span></label>
-          <label><input type="radio" name="work_days" value="6"><span><?php echo date('d-M-y', strtotime('+5 day'));?></span></label>
-          <label><input type="radio" name="work_days" value="7"><span><?php echo date('d-M-y', strtotime('+6 day'));?></span></label>
-        </p>
+        <form id="days" method="get" action="#title">
+
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d');?>" onchange="this.form.submit()"><span><?php echo date('d-M-y');?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+1 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+1 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+2 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+2 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+3 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+3 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+4 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+4 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+5 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+5 day'));?></span></label>
+          <label><input type="radio" name="work_days" value="<?php echo date('Y-m-d', strtotime('+6 day'));?>" onchange="this.form.submit()"><span><?php echo date('d-M-y', strtotime('+6 day'));?></span></label>
+          <!-- <input type="text" id="answer"> -->
+        </form>
        <div class="showings">
-         <ul>
+         <?php
+           if(empty($films[0]['film_name'])) {
+             echo "<div class='no-films'><h3>Danas nema projekcija.</h3></div>";
+           }
+           else {
+            foreach ($films as $film) {
+              ?>
+              <ul>
+                <li class="performance">
+                  <div class="programme">
+                    <div class="poster">
+                      <a href="#"><img src="<?php echo $film['poster'] ?>" alt=""></a>
+                    </div>
+                    <div class="programme-info">
+                      <ul>
+                        <li>
+                          <h3><a href="#"><?php echo $film['film_name']." (".$film['year'].")"; ?></a></h3>
+                        </li>
+                      </ul>
+                      <ul class="times">
+                        <li class="start-time"><?php echo date('H:i', strtotime($film['times'])) ?></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+          <?php  }
+           }   ?>
+
+         <!-- <ul>
            <li class="performance">
              <div class="programme">
                <div class="poster">
@@ -69,7 +119,7 @@
                <div class="programme-info">
                  <ul>
                    <li>
-                     <h3><a href="#">Brazil</a></h3>
+                     <h3><a href="#"></a></h3>
                    </li>
                  </ul>
                  <ul class="times">
@@ -98,7 +148,7 @@
                </div>
              </div>
            </li>
-         </ul>
+         </ul> -->
        </div>
      </div>
      <!-- End Repertoar -->
@@ -147,6 +197,8 @@
      <?php include('signup.php'); ?>
 
      <!-- End Signup -->
+
+
      <script>
       function openNavLogin() {
         document.getElementById("login-sidenav").style.width = "250px";

@@ -274,6 +274,15 @@ body {
   color: #fff;
   border-radius: 5px;
 }
+
+.no-films {
+  margin: auto;
+  padding: 10px;
+  color: #ad0230;
+  text-align: center;
+  font-size: 26px;
+}
+
 /* End Repertoar */
 
 /* Login */
