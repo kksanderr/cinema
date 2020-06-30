@@ -39,7 +39,6 @@ $film = $db->query($sql, [$id])->results();
         <span><label for="">Žanr: </label> <?php echo $film[0]->genre ?> </span><br>
         <span><label for="">Režiser: </label> <?php echo $film[0]->director ?> </span><br>
         <span><label for="">Uloge: </label> <?php echo $film[0]->actors ?> </span><br>
-        <span><label for="">Dužina trajanja: </label> <?php echo $film[0]->runtime ?> </span><br>
         <span><label for="">Jezik: </label> <?php echo $film[0]->language ?> </span><br>
         <span><a href="https://www.imdb.com/title/<?php echo $film[0]->imdb_id ?>"><img class="imdb" src="./img/imdb-logo.png" alt=""></a></span>
       </div>

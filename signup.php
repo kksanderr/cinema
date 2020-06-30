@@ -47,7 +47,7 @@ if(Input::exists('post')) {
 			$user->create($data);
 			// redirekt
 		Session::set('success', 'You have been registered and can now loged in');
-		Redirect::to('login.php');
+		Redirect::to('index.php');
 
 	} else {
 		Session::set('errors', $validation->errors());
@@ -97,7 +97,7 @@ if(Input::exists('post')) {
 					</div>
 				</div>
 			</section>
-			
+
     </div>
   </body>
 </html>
