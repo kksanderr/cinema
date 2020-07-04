@@ -82,7 +82,15 @@
 <!-- Forma koja se popunjava podacima iz API-ja -->
 <form class="" action="panel.php" method="post">
   <?php
+  $film = new Film();
   if(isset($_GET["imdbid"])) {
+    // Proverava format unetog IMDb ID-a
+    if(!$film->checkImdb($_GET["imdbid"])) {
+$html = <<<OUT
+<div class="filmexists">Neispravan IMDb ID!</div>
+OUT;
+echo $html;
+    }
     // Proverava da li IMDb ID postoji u bazi i u tom slucaju ispisuje poruku
     if(!empty($db->query($sql, [$_GET["imdbid"]])->results())) {
 $html = <<<OUT
