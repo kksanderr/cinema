@@ -14,7 +14,7 @@ class Film {
   }
 
   public function checkImdb($input) {
-    if(strlen($input) == 9 && substr($input, 0, 2) == 'tt') {
+    if(strlen($input) == 9 && substr($input, 0, 2) == 'tt' && is_numeric(substr($input, 2))) {
       return true;
     }
     else {
