@@ -44,7 +44,16 @@ class Showings {
     if ((isset($_GET[$name]) && $_GET[$name] == $value)) {
     $checked = ' checked="checked"';
     echo $checked;
+    }
   }
+
+  // Vraca showings_id za prosledjen film_id i vreme prikazivanja
+  public function returnShowingId($film, $time) {
+    $sql = "SELECT * FROM `showings` WHERE `film_id` = ? AND `times` = ?";
+
+    $id = $this->db->query($sql, [$film, $time])->results();
+    // return $id;
+    return $id[0]->id;
   }
 }
  ?>

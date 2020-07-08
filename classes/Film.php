@@ -21,5 +21,21 @@ class Film {
       return false;
     }
   }
+
+  public function myFilms($user_id) {
+    $sql = "SELECT `showings_id`, `id` FROM `users_films` WHERE `user_id` = ?";
+    $shows = $this->db->query($sql, [$user_id])->results();
+    // print_r($shows);
+
+    $sql2 = "SELECT `film_id`, `times` FROM `showings` WHERE `id` = ?";
+    foreach($shows as $show) {
+      $film_id = $this->db->query($sql2, [$show->showings_id])->results();
+      $film_ids[] = [$film_id[0], $show->id];
+      // print_r($film_id);
+    }
+    // print_r($film_ids);
+    return $film_ids;
+
+  }
 }
  ?>

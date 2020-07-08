@@ -33,7 +33,10 @@
 $a = $_GET["browser"];
 echo $a;
 $showings = new Showings();
+$films = new Film();
 echo "<pre>";
+$films->myFilms(5);
+// print_r($showings->returnShowingId('62', '2020-07-09 16:00:00'));
 $res = $showings->show('2020-07-03');
 print_r($res);
 echo $res[2]['film_name'];

@@ -293,6 +293,17 @@ body {
   font-size: 26px;
 }
 
+.my-films {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.my-films a {
+  color: #ad0230;
+  text-decoration: none;
+}
+
+
 /* End Repertoar */
 
 /* Login */

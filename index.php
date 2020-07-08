@@ -123,6 +123,11 @@
                       <ul class="times">
                         <li class="start-time"><?php echo date('H:i', strtotime($film['times'])) ?></li>
                       </ul>
+                      <?php if(isset($user) && $user->isLoggedIn()) { ?>
+                      <div class="my-films">
+                        <a href="my-films.php?show_id=<?php echo $shows->returnShowingId($film['id'], $film['times']) ?>">➕ Moji filmovi</a>
+                      </div>
+                    <?php } ?>
                     </div>
                   </div>
                 </li>
